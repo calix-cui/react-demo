@@ -1,26 +1,28 @@
-import { useState } from 'react'
-import './App.css';
+import {useState, useLayoutEffect, useEffect} from 'react';
 
-interface AaaProps {
-  name: string,
-  // content: React.ReactElement // 不允许number、null
-  content: React.ReactNode // 包含 ReactElement, number, null, boolean, ...
+async function queryData() {
+  const data = await new Promise<number>((resolve) => { 
+    setTimeout(() => {
+      resolve(666)
+    }, 2000);
+   })
+  return data
 }
-
-const Aaa: React.FunctionComponent<AaaProps> = (props) => {
-  return <div>aaa, {props.name} {props.content}</div>
-}
-
-function Aaa2(props: AaaProps) {
-  return <div>aaa, {props.name} {props.content}</div>
-}
-
-const content: JSX.Element = <div>content</div>
 
 function App() {
-  return <div>
-    <Aaa name='calix' content={content}></Aaa>
-  </div>
+  const [num, setNum] = useState(0)
+
+  useLayoutEffect(() => {
+    queryData().then((data) => {
+      setNum(data)
+    })
+  }, [])
+
+  return (
+    <div onClick={(e) => {
+      setNum((prevNum) => prevNum + 1)
+    }}>{num}</div>
+  )
 }
 
-export default App;
+export default App
