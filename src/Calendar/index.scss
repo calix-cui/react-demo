@@ -1,0 +1,21 @@
+.calendar {
+  width: 100%;
+  background-color: #fff;
+}
+
+.calendar-month {
+  &-week-list {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+
+    &-item {
+      padding: 20px 16px;
+      text-align: left;
+      color: #7d7d7f;
+      flex: 1;
+    }
+  }
+}
