@@ -27,10 +27,15 @@ function Calendar(props: CalendarProps) {
 
   const classNames = cs("calendar", className);
 
-  const selectHandler = (date: Dayjs) => {
+  function changeDate(date: Dayjs) {
     setCurValue(date);
+    setCurMonth(date);
     onChange?.(date);
-  };
+  }
+
+  function selectHandler(date: Dayjs) {
+    changeDate(date);
+  }
 
   function prevMonthHandler() {
     let prevMonth = curMonth.subtract(1, "month");
@@ -48,9 +53,19 @@ function Calendar(props: CalendarProps) {
     setCurValue(curValue.set("month", nextMonth.month()));
   }
 
+  function todayHandler() {
+    const date = dayjs(Date.now());
+
+    changeDate(date);
+  }
+
   return (
     <div className={classNames} style={style}>
-      <Header curMonth={curMonth} prevMonthHandler={prevMonthHandler} nextMonthHandler={nextMonthHandler}></Header>
+      <Header
+        curMonth={curMonth}
+        prevMonthHandler={prevMonthHandler}
+        nextMonthHandler={nextMonthHandler}
+        todayHandler={todayHandler}></Header>
       <MonthCalendar {...props} value={curValue} curMonth={curMonth} selectHandler={selectHandler} />
     </div>
   );

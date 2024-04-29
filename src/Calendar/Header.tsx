@@ -4,10 +4,11 @@ interface HeaderProps {
   curMonth: Dayjs;
   prevMonthHandler: () => void;
   nextMonthHandler: () => void;
+  todayHandler: () => void;
 }
 
 function Header(props: HeaderProps) {
-  const { curMonth, nextMonthHandler, prevMonthHandler } = props;
+  const { curMonth, nextMonthHandler, prevMonthHandler, todayHandler } = props;
 
   return (
     <div className="calendar-header">
@@ -19,7 +20,7 @@ function Header(props: HeaderProps) {
         <div className="calendar-header-icon" onClick={nextMonthHandler}>
           &gt;
         </div>
-        <div className="calendar-header-btn">今天</div>
+        <div className="calendar-header-btn" onClick={todayHandler}>今天</div>
       </div>
     </div>
   );
