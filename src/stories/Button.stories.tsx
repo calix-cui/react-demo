@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { expect, fn, userEvent, within } from '@storybook/test';
 import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -53,8 +53,36 @@ export const Small: Story = {
 
 export const Test: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    size: 'large',
+    label: 'Button-test',
+    backgroundColor: 'yellow'
   },
-  // render: ({ label }) => <Button label={label} />,
+  render:(args) => (<Button {...args} />),
+  play: async ({canvasElement}) => {
+    const canvas = within(canvasElement)
+    const btn = await canvas.getByRole('button', {
+      name: /Button-test/i
+    })
+    await userEvent.click(btn)
+
+    await expect(btn.textContent).toEqual('Button-test')
+    await expect(btn.style.backgroundColor).toEqual('yellow')
+
+    btn.textContent = 'Another'
+  },
+  // render(args, meta) {
+  //   const list = meta.loaded.list
+  //   return <div>
+  //     <div>{list.join(',')}</div>
+  //     <Button {...args}></Button>
+  //   </div>
+  // },
+  // loaders: [
+  //   async () => {
+  //     await 'mock fetch'
+  //     return {
+  //       list: [1,2,3,4,5,6]
+  //     }
+  //   }
+  // ]
 };
