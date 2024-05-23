@@ -42,7 +42,8 @@ function Calendar(props: CalendarProps) {
 
     setCurMonth(prevMonth);
 
-    setCurValue(curValue.set("month", prevMonth.month()));
+    // setCurValue(curValue.set("month", prevMonth.month()));
+    setCurValue(prevMonth);
   }
 
   function nextMonthHandler() {
@@ -50,7 +51,8 @@ function Calendar(props: CalendarProps) {
 
     setCurMonth(nextMonth);
 
-    setCurValue(curValue.set("month", nextMonth.month()));
+    // setCurValue(curValue.set("month", nextMonth.month()));
+    setCurValue(nextMonth);
   }
 
   function todayHandler() {
