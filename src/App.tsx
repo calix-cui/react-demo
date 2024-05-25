@@ -1,25 +1,38 @@
-// import Calendar from "./Calendar";
-// import dayjs, { Dayjs } from "dayjs";
+// import { ConfigProvider, Space } from "antd";
 import "./App.css";
-import { Icon } from "./components/Icon";
-import { createFromIconfont } from "./components/Icon/createFrontIconfont"
-import { IconAdd, IconEmail } from "./components/Icon/icons";
+import { IconAdd } from "./components/Icon/icons";
+import Space from "./components/Space";
+import { ConfigProvider } from "./components/Space/ConfigProvider";
 
-const IconFont = createFromIconfont('//at.alicdn.com/t/c/font_3520073_d8oacpy79dg.js')
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      {/* <Calendar value={dayjs()}></Calendar> */}
-      {/* <Icon></Icon> */}
-      <IconAdd size="40px" color="red"></IconAdd>
-      <IconAdd size="40px" spin></IconAdd>
-      <IconEmail style={{ color: "blue", fontSize: "20px" }} ></IconEmail>
-      <div>iconfont</div>
-      <IconFont type="icon-config" size="30px"></IconFont>
-      <IconFont type="icon-layered-configuration" fill="blue"></IconFont>
+    <div>
+      <ConfigProvider space={{ size: 100 }}>
+        <Space
+          style={{ height: 400, width: 400, backgroundColor: "azure" }}
+          wrap={true}
+          direction="horizontal"
+          split={<div>testDiv</div>}
+          align="start">
+          <div className="box">111</div>
+          <div className="box">222</div>
+          <div className="box">333</div>
+          <div className="box">444</div>
+          <div className="box">555</div>
+        </Space>
+        <Space
+          style={{ height: 400, width: 800, backgroundColor: "wheat" }}
+          wrap={true}
+          direction="vertical"
+          split={<IconAdd></IconAdd>}
+          align="center">
+          <div className="box">aaa</div>
+          <div className="box">bbb</div>
+          <div className="box">ccc</div>
+          <div className="box">ddd</div>
+          <div className="box">eee</div>
+        </Space>
+      </ConfigProvider>
     </div>
   );
 }
-
-export default App;
