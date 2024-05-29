@@ -1,13 +1,19 @@
-// import { ConfigProvider, Space } from "antd";
 import "./App.css";
-import { IconAdd } from "./components/Icon/icons";
-import Space from "./components/Space";
-import { ConfigProvider } from "./components/Space/ConfigProvider";
+
+// Icon component
+// import { IconAdd } from "./components/Icon/icons";
+
+// Space component
+// import Space from "./components/Space";
+// import { ConfigProvider } from "./components/Space/ConfigProvider";
+
+// Children API
+import Children, { Row, RowList, RowList2 } from "./demos/React.Children";
 
 export default function App() {
   return (
     <div>
-      <ConfigProvider space={{ size: 100 }}>
+      {/* <ConfigProvider space={{ size: 100 }}>
         <Space
           style={{ height: 400, width: 400, backgroundColor: "azure" }}
           wrap={true}
@@ -32,7 +38,35 @@ export default function App() {
           <div className="box">ddd</div>
           <div className="box">eee</div>
         </Space>
-      </ConfigProvider>
+      </ConfigProvider> */}
+
+      <Children>
+        <div>111</div>
+        <div>222</div>
+        <div>333</div>
+      </Children>
+
+      <RowList>
+        <Row>111</Row>
+        <Row>222</Row>
+        <Row>333</Row>
+      </RowList>
+
+      <RowList2
+        rows={[
+          {
+            id: "1",
+            content: <p>This is the first item.</p>,
+          },
+          {
+            id: "2",
+            content: <p>This is the second item.</p>,
+          },
+          {
+            id: "3",
+            content: <p>This is the third item.</p>,
+          },
+        ]}></RowList2>
     </div>
   );
 }
