@@ -1,0 +1,21 @@
+.game {
+  display: flex;
+  padding: 20px;
+
+  &-board {
+    margin-right: 10px;
+
+    .board-row {
+      width: 180px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .square {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+  &-moves {
+  }
+}

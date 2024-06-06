@@ -1,4 +1,5 @@
 import "./App.css";
+import TicTacToe from "./components/Tic-Tac-Toe";
 
 // Icon component
 // import { IconAdd } from "./components/Icon/icons";
@@ -8,7 +9,9 @@ import "./App.css";
 // import { ConfigProvider } from "./components/Space/ConfigProvider";
 
 // Children API
-import Children, { Row, RowList, RowList2 } from "./demos/React.Children";
+// import Children, { Row, RowList, RowList2 } from "./demos/React.Children";
+
+// Tic-Tac-Toe
 
 export default function App() {
   return (
@@ -40,7 +43,7 @@ export default function App() {
         </Space>
       </ConfigProvider> */}
 
-      <Children>
+      {/* <Children>
         <div>111</div>
         <div>222</div>
         <div>333</div>
@@ -66,7 +69,9 @@ export default function App() {
             id: "3",
             content: <p>This is the third item.</p>,
           },
-        ]}></RowList2>
+        ]}></RowList2> */}
+
+      <TicTacToe></TicTacToe>
     </div>
   );
 }
