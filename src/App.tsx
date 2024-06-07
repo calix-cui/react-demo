@@ -1,5 +1,5 @@
 import "./App.css";
-import TicTacToe from "./components/Tic-Tac-Toe";
+import CopyToClipboard from "./utils/CopyToClipboard";
 
 // Icon component
 // import { IconAdd } from "./components/Icon/icons";
@@ -12,6 +12,9 @@ import TicTacToe from "./components/Tic-Tac-Toe";
 // import Children, { Row, RowList, RowList2 } from "./demos/React.Children";
 
 // Tic-Tac-Toe
+// import TicTacToe from "./components/Tic-Tac-Toe";
+
+// import Portal from "./utils/Portal";
 
 export default function App() {
   return (
@@ -71,7 +74,21 @@ export default function App() {
           },
         ]}></RowList2> */}
 
-      <TicTacToe></TicTacToe>
+      {/* <TicTacToe></TicTacToe> */}
+
+      {/* <div className="wrapper">wrapper</div>
+      <Portal attach=".wrapper">
+        <div>测试</div>
+      </Portal> */}
+
+      <CopyToClipboard
+        text="被复制的文字"
+        onCopy={() => {
+          console.log("copy");
+        }}
+        options={{ debug: true, message: "123" }}>
+        <button>点击复制</button>
+      </CopyToClipboard>
     </div>
   );
 }
