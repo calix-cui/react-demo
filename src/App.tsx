@@ -1,5 +1,5 @@
-import "./App.css";
-import { useEffect, useState } from "react";
+import './App.css';
+import { useEffect, useRef, useState } from 'react';
 
 // Icon component
 // import { IconAdd } from "./components/Icon/icons";
@@ -26,144 +26,176 @@ import { useEffect, useState } from "react";
 // import { useCookie } from "react-use"
 // import useCookie from "./hooks/useCookie"
 // import { useHover } from "react-use";
-import useHover from "./hooks/useHover";
+// import useHover from "./hooks/useHover";
+// import { useScrolling } from 'react-use';
+import useScrolling from './hooks/useScrolling';
 
 export default function App() {
-  /*useLifeCycles useMountedState*/
-  // useLifeCycles(() => console.log('Mounted'), () => console.log('UnMounted'))
+	/*useLifeCycles useMountedState*/
+	// useLifeCycles(() => console.log('Mounted'), () => console.log('UnMounted'))
 
-  // const isMounted = useMountedState()
-  // const [, setNum] = useState(0)
+	// const isMounted = useMountedState()
+	// const [, setNum] = useState(0)
 
-  // useEffect(() => {
-  //   console.log(1)
-  //   setTimeout(() => {
-  //     setNum(1)
-  //   }, 1000);
-  // })
+	// useEffect(() => {
+	//   console.log(1)
+	//   setTimeout(() => {
+	//     setNum(1)
+	//   }, 1000);
+	// })
 
-  // return <div>{ isMounted() ? 'mounted' : 'pending' }</div>
+	// return <div>{ isMounted() ? 'mounted' : 'pending' }</div>
 
-  /*useCookie*/
-  // const [value, updateCookie, deleteCookie] = useCookie("test")
+	/*useCookie*/
+	// const [value, updateCookie, deleteCookie] = useCookie("test")
 
-  // useEffect(() => {
-  //   deleteCookie()
-  // }, [])
+	// useEffect(() => {
+	//   deleteCookie()
+	// }, [])
 
-  // const updateCookieHandler = () => {
-  //   updateCookie("666")
-  // }
+	// const updateCookieHandler = () => {
+	//   updateCookie("666")
+	// }
 
-  // return (
-  //   <div>
-  //     <p>cookie 值: {value}</p>
-  //     <button onClick={updateCookieHandler}>更新 Cookie</button>
-  //     <br />
-  //     <button onClick={deleteCookie}>删除 Cookie</button>
-  //   </div>
-  // )
+	// return (
+	//   <div>
+	//     <p>cookie 值: {value}</p>
+	//     <button onClick={updateCookieHandler}>更新 Cookie</button>
+	//     <br />
+	//     <button onClick={deleteCookie}>删除 Cookie</button>
+	//   </div>
+	// )
 
-  /*useHover*/
-  const element = (hovered: boolean) => <div>Hover me! {hovered && "Thanks"}</div>;
+	/*useHover*/
+	// const element = (hovered: boolean) => <div>Hover me! {hovered && "Thanks"}</div>;
 
-  const [hoverable, hovered] = useHover(element);
+	// const [hoverable, hovered] = useHover(element);
 
-  return (
-    <div>
-      {hoverable}
-      <div>{hovered ? "HOVERED" : ""}</div>
-    </div>
-  );
+	// return (
+	//   <div>
+	//     {hoverable}
+	//     <div>{hovered ? "HOVERED" : ""}</div>
+	//   </div>
+	// );
+	/*useScrolling*/
+	const scrollRef = useRef<HTMLDivElement>(null);
+	const scrolling = useScrolling(scrollRef);
 
-  // return (
-  // <div>
-  //   {/* <ConfigProvider space={{ size: 100 }}>
-  //     <Space
-  //       style={{ height: 400, width: 400, backgroundColor: "azure" }}
-  //       wrap={true}
-  //       direction="horizontal"
-  //       split={<div>testDiv</div>}
-  //       align="start">
-  //       <div className="box">111</div>
-  //       <div className="box">222</div>
-  //       <div className="box">333</div>
-  //       <div className="box">444</div>
-  //       <div className="box">555</div>
-  //     </Space>
-  //     <Space
-  //       style={{ height: 400, width: 800, backgroundColor: "wheat" }}
-  //       wrap={true}
-  //       direction="vertical"
-  //       split={<IconAdd></IconAdd>}
-  //       align="center">
-  //       <div className="box">aaa</div>
-  //       <div className="box">bbb</div>
-  //       <div className="box">ccc</div>
-  //       <div className="box">ddd</div>
-  //       <div className="box">eee</div>
-  //     </Space>
-  //   </ConfigProvider> */}
+	return (
+		<>
+			{<div>{scrolling ? '滚动中..' : '没有滚动'}</div>}
 
-  //   {/* <Children>
-  //     <div>111</div>
-  //     <div>222</div>
-  //     <div>333</div>
-  //   </Children>
+			<div ref={scrollRef} style={{ height: '200px', overflow: 'auto' }}>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+        <div>||---||---||---||</div>
+      </div>
+		</>
+	);
 
-  //   <RowList>
-  //     <Row>111</Row>
-  //     <Row>222</Row>
-  //     <Row>333</Row>
-  //   </RowList>
+	// return (
+	// <div>
+	//   {/* <ConfigProvider space={{ size: 100 }}>
+	//     <Space
+	//       style={{ height: 400, width: 400, backgroundColor: "azure" }}
+	//       wrap={true}
+	//       direction="horizontal"
+	//       split={<div>testDiv</div>}
+	//       align="start">
+	//       <div className="box">111</div>
+	//       <div className="box">222</div>
+	//       <div className="box">333</div>
+	//       <div className="box">444</div>
+	//       <div className="box">555</div>
+	//     </Space>
+	//     <Space
+	//       style={{ height: 400, width: 800, backgroundColor: "wheat" }}
+	//       wrap={true}
+	//       direction="vertical"
+	//       split={<IconAdd></IconAdd>}
+	//       align="center">
+	//       <div className="box">aaa</div>
+	//       <div className="box">bbb</div>
+	//       <div className="box">ccc</div>
+	//       <div className="box">ddd</div>
+	//       <div className="box">eee</div>
+	//     </Space>
+	//   </ConfigProvider> */}
 
-  //   <RowList2
-  //     rows={[
-  //       {
-  //         id: "1",
-  //         content: <p>This is the first item.</p>,
-  //       },
-  //       {
-  //         id: "2",
-  //         content: <p>This is the second item.</p>,
-  //       },
-  //       {
-  //         id: "3",
-  //         content: <p>This is the third item.</p>,
-  //       },
-  //     ]}></RowList2> */}
+	//   {/* <Children>
+	//     <div>111</div>
+	//     <div>222</div>
+	//     <div>333</div>
+	//   </Children>
 
-  //   {/* <TicTacToe></TicTacToe> */}
+	//   <RowList>
+	//     <Row>111</Row>
+	//     <Row>222</Row>
+	//     <Row>333</Row>
+	//   </RowList>
 
-  //   {/* <div className="wrapper">wrapper</div>
-  //   <Portal attach=".wrapper">
-  //     <div>测试</div>
-  //   </Portal> */}
+	//   <RowList2
+	//     rows={[
+	//       {
+	//         id: "1",
+	//         content: <p>This is the first item.</p>,
+	//       },
+	//       {
+	//         id: "2",
+	//         content: <p>This is the second item.</p>,
+	//       },
+	//       {
+	//         id: "3",
+	//         content: <p>This is the third item.</p>,
+	//       },
+	//     ]}></RowList2> */}
 
-  //   <CopyToClipboard
-  //     text="被复制的文字"
-  //     onCopy={() => {
-  //       console.log("copy");
-  //     }}
-  //     options={{ debug: true, message: "123" }}>
-  //     <button>点击复制</button>
-  //   </CopyToClipboard>
-  // </div>
+	//   {/* <TicTacToe></TicTacToe> */}
 
-  // <Watermark
-  //   content={["测试水印", "神说要有光"]}
-  //   gap={[0, 0]}
-  //   offset={[50, 100]}
-  //   fontStyle={{
-  //     color: "green",
-  //   }}>
-  //   <div style={{ height: 800 }}>
-  //     <p>
-  //       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod deserunt quidem quas in rem ipsam ut
-  //       nesciunt asperiores dignissimos recusandae minus, eaque, harum exercitationem esse sapiente? Eveniet, id
-  //       provident!
-  //     </p>
-  //   </div>
-  // </Watermark>
-  // );
+	//   {/* <div className="wrapper">wrapper</div>
+	//   <Portal attach=".wrapper">
+	//     <div>测试</div>
+	//   </Portal> */}
+
+	//   <CopyToClipboard
+	//     text="被复制的文字"
+	//     onCopy={() => {
+	//       console.log("copy");
+	//     }}
+	//     options={{ debug: true, message: "123" }}>
+	//     <button>点击复制</button>
+	//   </CopyToClipboard>
+	// </div>
+
+	// <Watermark
+	//   content={["测试水印", "神说要有光"]}
+	//   gap={[0, 0]}
+	//   offset={[50, 100]}
+	//   fontStyle={{
+	//     color: "green",
+	//   }}>
+	//   <div style={{ height: 800 }}>
+	//     <p>
+	//       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod deserunt quidem quas in rem ipsam ut
+	//       nesciunt asperiores dignissimos recusandae minus, eaque, harum exercitationem esse sapiente? Eveniet, id
+	//       provident!
+	//     </p>
+	//   </div>
+	// </Watermark>
+	// );
 }
