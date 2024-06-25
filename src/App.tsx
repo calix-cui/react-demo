@@ -28,7 +28,29 @@ import { useEffect, useRef, useState } from 'react';
 // import { useHover } from "react-use";
 // import useHover from "./hooks/useHover";
 // import { useScrolling } from 'react-use';
-import useScrolling from './hooks/useScrolling';
+// import useScrolling from './hooks/useScrolling';
+// import { useTimeout, useWhyDidYouUpdate } from 'ahooks'
+import useWhyDidYouUpdate from './hooks/useWhyDidYouUpdate'
+
+const Demo: React.FC<{ count: number }> = (props) => {
+  const [randomNum, setRandomNum] = useState(Math.random());
+
+  useWhyDidYouUpdate('Demo', { ...props, randomNum });
+
+  return (
+    <div>
+      <div>
+        <span>number: {props.count}</span>
+      </div>
+      <div>
+        randomNum: {randomNum}
+        <button onClick={() => setRandomNum(Math.random)}>
+          设置随机 state
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default function App() {
 	/*useLifeCycles useMountedState*/
@@ -77,36 +99,50 @@ export default function App() {
 	//     <div>{hovered ? "HOVERED" : ""}</div>
 	//   </div>
 	// );
+
 	/*useScrolling*/
-	const scrollRef = useRef<HTMLDivElement>(null);
-	const scrolling = useScrolling(scrollRef);
+	// const scrollRef = useRef<HTMLDivElement>(null);
+	// const scrolling = useScrolling(scrollRef);
 
-	return (
-		<>
-			{<div>{scrolling ? '滚动中..' : '没有滚动'}</div>}
+	// return (
+	// 	<>
+	// 		{<div>{scrolling ? '滚动中..' : '没有滚动'}</div>}
 
-			<div ref={scrollRef} style={{ height: '200px', overflow: 'auto' }}>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
-        <div>||---||---||---||</div>
+	// 		<div ref={scrollRef} style={{ height: '200px', overflow: 'auto' }}>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //       <div>||---||---||---||</div>
+  //     </div>
+	// 	</>
+	// );
+
+  /*useWhyDidYouUpdate*/
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <Demo count={count} />
+      <div>
+        <button onClick={() => setCount((prevCount) => prevCount - 1)}>减一</button>
+        <button onClick={() => setCount((prevCount) => prevCount + 1)}>加一</button>
       </div>
-		</>
-	);
+    </div>
+  );
 
 	// return (
 	// <div>
