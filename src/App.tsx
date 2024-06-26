@@ -30,27 +30,30 @@ import { useEffect, useRef, useState } from 'react';
 // import { useScrolling } from 'react-use';
 // import useScrolling from './hooks/useScrolling';
 // import { useTimeout, useWhyDidYouUpdate } from 'ahooks'
-import useWhyDidYouUpdate from './hooks/useWhyDidYouUpdate'
 
-const Demo: React.FC<{ count: number }> = (props) => {
-  const [randomNum, setRandomNum] = useState(Math.random());
+// import useWhyDidYouUpdate from './hooks/useWhyDidYouUpdate'
+// const Demo: React.FC<{ count: number }> = (props) => {
+//   const [randomNum, setRandomNum] = useState(Math.random());
+//   useWhyDidYouUpdate('Demo', { ...props, randomNum });
+//   return (
+//     <div>
+//       <div>
+//         <span>number: {props.count}</span>
+//       </div>
+//       <div>
+//         randomNum: {randomNum}
+//         <button onClick={() => setRandomNum(Math.random)}>
+//           设置随机 state
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 
-  useWhyDidYouUpdate('Demo', { ...props, randomNum });
+// import useTimeout from './hooks/useTimeout'
 
-  return (
-    <div>
-      <div>
-        <span>number: {props.count}</span>
-      </div>
-      <div>
-        randomNum: {randomNum}
-        <button onClick={() => setRandomNum(Math.random)}>
-          设置随机 state
-        </button>
-      </div>
-    </div>
-  );
-};
+// import { useCountDown } from 'ahooks'
+// import useCountDown from './hooks/useCountDown'
 
 export default function App() {
 	/*useLifeCycles useMountedState*/
@@ -132,17 +135,40 @@ export default function App() {
 	// );
 
   /*useWhyDidYouUpdate*/
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  return (
-    <div>
-      <Demo count={count} />
-      <div>
-        <button onClick={() => setCount((prevCount) => prevCount - 1)}>减一</button>
-        <button onClick={() => setCount((prevCount) => prevCount + 1)}>加一</button>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <Demo count={count} />
+  //     <div>
+  //       <button onClick={() => setCount((prevCount) => prevCount - 1)}>减一</button>
+  //       <button onClick={() => setCount((prevCount) => prevCount + 1)}>加一</button>
+  //     </div>
+  //   </div>
+  // );
+
+  /*useTimeout*/
+  // const [state, setState] = useState(1);
+  // useTimeout(() => {
+  //   console.log(state + 1)
+  //   setState(state + 1);
+  // }, 3000);
+
+  // return <div onClick={() => setState(999)}>{state}</div>;
+
+  /*useCountDown*/
+  // const [countdown, formattedRes] = useCountDown({
+  //   targetDate: '2024-06-28 18:00:00',
+  //   onEnd: () => alert('离职快乐，祝你身体健康一切顺利')
+  // })
+
+  // const { days, hours, minutes, seconds, milliseconds } = formattedRes
+
+  // return (
+  //   <div>
+  //       还有 {days} 天  {hours} 小时  {minutes} 分钟  {seconds} 秒  {milliseconds} 毫秒
+  //   </div>
+  // );
 
 	// return (
 	// <div>
