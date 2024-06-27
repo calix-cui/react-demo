@@ -56,6 +56,10 @@ import { useEffect, useRef, useState } from 'react';
 // import useCountDown from './hooks/useCountDown'
 
 export default function App() {
+  return (
+    <div className='text-base p-1 border border-black border-solid hover:text-[30px] md:bg-blue-500'>app</div>
+  )
+  
 	/*useLifeCycles useMountedState*/
 	// useLifeCycles(() => console.log('Mounted'), () => console.log('UnMounted'))
 
