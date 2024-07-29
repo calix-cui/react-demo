@@ -9,9 +9,9 @@ module.exports = {
       //   'base': ['30px', '2rem']
       // }
     },
-    screens: {
-      md: '300px'
-    }
+    // screens: {
+    //   md: '300px'
+    // }
   },
   plugins: [],
 }

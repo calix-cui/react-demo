@@ -56,10 +56,13 @@ import { useEffect, useRef, useState } from 'react';
 // import useCountDown from './hooks/useCountDown'
 
 export default function App() {
-  return (
-    <div className='text-base p-1 border border-black border-solid hover:text-[30px] md:bg-blue-500'>app</div>
-  )
-  
+	return (
+		<div>
+			<div className="text-base p-1 border border-black border-solid hover:text-[30px] md:bg-blue-500">app</div>
+			<button className='btn-primary'>btn1</button>
+		</div>
+	);
+
 	/*useLifeCycles useMountedState*/
 	// useLifeCycles(() => console.log('Mounted'), () => console.log('UnMounted'))
 
@@ -116,63 +119,63 @@ export default function App() {
 	// 		{<div>{scrolling ? '滚动中..' : '没有滚动'}</div>}
 
 	// 		<div ref={scrollRef} style={{ height: '200px', overflow: 'auto' }}>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //       <div>||---||---||---||</div>
-  //     </div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//       <div>||---||---||---||</div>
+	//     </div>
 	// 	</>
 	// );
 
-  /*useWhyDidYouUpdate*/
-  // const [count, setCount] = useState(0);
+	/*useWhyDidYouUpdate*/
+	// const [count, setCount] = useState(0);
 
-  // return (
-  //   <div>
-  //     <Demo count={count} />
-  //     <div>
-  //       <button onClick={() => setCount((prevCount) => prevCount - 1)}>减一</button>
-  //       <button onClick={() => setCount((prevCount) => prevCount + 1)}>加一</button>
-  //     </div>
-  //   </div>
-  // );
+	// return (
+	//   <div>
+	//     <Demo count={count} />
+	//     <div>
+	//       <button onClick={() => setCount((prevCount) => prevCount - 1)}>减一</button>
+	//       <button onClick={() => setCount((prevCount) => prevCount + 1)}>加一</button>
+	//     </div>
+	//   </div>
+	// );
 
-  /*useTimeout*/
-  // const [state, setState] = useState(1);
-  // useTimeout(() => {
-  //   console.log(state + 1)
-  //   setState(state + 1);
-  // }, 3000);
+	/*useTimeout*/
+	// const [state, setState] = useState(1);
+	// useTimeout(() => {
+	//   console.log(state + 1)
+	//   setState(state + 1);
+	// }, 3000);
 
-  // return <div onClick={() => setState(999)}>{state}</div>;
+	// return <div onClick={() => setState(999)}>{state}</div>;
 
-  /*useCountDown*/
-  // const [countdown, formattedRes] = useCountDown({
-  //   targetDate: '2024-06-28 18:00:00',
-  //   onEnd: () => alert('离职快乐，祝你身体健康一切顺利')
-  // })
+	/*useCountDown*/
+	// const [countdown, formattedRes] = useCountDown({
+	//   targetDate: '2024-06-28 18:00:00',
+	//   onEnd: () => alert('离职快乐，祝你身体健康一切顺利')
+	// })
 
-  // const { days, hours, minutes, seconds, milliseconds } = formattedRes
+	// const { days, hours, minutes, seconds, milliseconds } = formattedRes
 
-  // return (
-  //   <div>
-  //       还有 {days} 天  {hours} 小时  {minutes} 分钟  {seconds} 秒  {milliseconds} 毫秒
-  //   </div>
-  // );
+	// return (
+	//   <div>
+	//       还有 {days} 天  {hours} 小时  {minutes} 分钟  {seconds} 秒  {milliseconds} 毫秒
+	//   </div>
+	// );
 
 	// return (
 	// <div>
